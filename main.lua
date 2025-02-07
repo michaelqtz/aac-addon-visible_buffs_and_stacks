@@ -3,7 +3,7 @@ local api = require("api")
 local visible_buffs_and_stacks_addon = {
 	name = "Visible Buffs & Stacks",
 	author = "Michaelqt",
-	version = "1.0",
+	version = "v1.0.0",
 	desc = "Removes buff blink, and improves stack text."
 }
 
@@ -28,6 +28,13 @@ local function OnUpdate(dt)
             buffBtn:ReleaseHandler("OnUpdate")
             
         end
+        for key,value in pairs(playerFrame.debuffWindow.button) do
+            local debuffBtn = playerFrame.debuffWindow.button[key]
+            debuffBtn:SetAlpha(1)
+            debuffBtn.OnUpdate = nil
+            debuffBtn:ReleaseHandler("OnUpdate")
+            
+        end
     end 
     clockTimer = clockTimer + dt
 end 
@@ -42,7 +49,7 @@ local function OnLoad()
 		buffBtn.leftTimeText:RemoveAllAnchors()
 		buffBtn.leftTimeText:AddAnchor("CENTER", buffBtn, -2, 2)
 		buffBtn.stack.style:SetFontSize(12)
-		ApplyTextColor(buffBtn.stack, {0.8, 1, 0.8, 1})
+		ApplyTextColor(buffBtn.stack, {0.85, 1, 0.85, 1})
 		-- ApplyTextColor(buffBtn.stack, FONT_COLOR.WHITE)
 		buffBtn.stack.style:SetOutline(true)
 	end
@@ -52,7 +59,7 @@ local function OnLoad()
 		debuffBtn.leftTimeText:RemoveAllAnchors()
 		debuffBtn.leftTimeText:AddAnchor("CENTER", debuffBtn, -2, -4)
 		debuffBtn.stack.style:SetFontSize(12)
-		ApplyTextColor(debuffBtn.stack, {1, 0.8, 0.8, 1})
+		ApplyTextColor(debuffBtn.stack, {1, 0.85, 0.85, 1})
 		-- ApplyTextColor(debuffBtn.stack, FONT_COLOR.WHITE)
 		debuffBtn.stack.style:SetOutline(true)
 	end
