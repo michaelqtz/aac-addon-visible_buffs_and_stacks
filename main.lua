@@ -24,14 +24,14 @@ local function OnUpdate(dt)
         for key,value in pairs(playerFrame.buffWindow.button) do
             local buffBtn = playerFrame.buffWindow.button[key]
             buffBtn:SetAlpha(1)
-            buffBtn.OnUpdate = nil
+            buffBtn.OnUpdate = function() return end
             buffBtn:ReleaseHandler("OnUpdate")
             
         end
         for key,value in pairs(playerFrame.debuffWindow.button) do
             local debuffBtn = playerFrame.debuffWindow.button[key]
             debuffBtn:SetAlpha(1)
-            debuffBtn.OnUpdate = nil
+            debuffBtn.OnUpdate = function() return end
             debuffBtn:ReleaseHandler("OnUpdate")
             
         end
@@ -39,14 +39,14 @@ local function OnUpdate(dt)
         for key,value in pairs(targetFrame.buffWindow.button) do
             local buffBtn = targetFrame.buffWindow.button[key]
             buffBtn:SetAlpha(1)
-            buffBtn.OnUpdate = nil
+            buffBtn.OnUpdate = function() return end
             buffBtn:ReleaseHandler("OnUpdate")
             
         end
         for key,value in pairs(targetFrame.debuffWindow.button) do
             local debuffBtn = targetFrame.debuffWindow.button[key]
             debuffBtn:SetAlpha(1)
-            debuffBtn.OnUpdate = nil
+            debuffBtn.OnUpdate = function() return end
             debuffBtn:ReleaseHandler("OnUpdate")
             
         end
